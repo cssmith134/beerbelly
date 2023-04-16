@@ -1,1 +1,8 @@
 version: '3.7'
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+        - "3000:3000"
