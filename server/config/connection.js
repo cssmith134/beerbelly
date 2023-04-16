@@ -1,8 +1,13 @@
+const path = require("path")
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {  // REPLACE TH API
+
+require('dotenv').config({ path: path.resolve(__dirname, '..', '..', '.env') });
+
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: true,
 });
+
 module.exports = mongoose.connection;
